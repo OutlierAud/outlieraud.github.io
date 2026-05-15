@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+*
+
+# GitHub Pages (just in case)
+_site/
+
+# VS Code (if you use it)
+.vscode/
+*.code-workspace
+
+# PyCharm (if you use it)
+.idea/
+*.iml
+
+# Backup files
+*.bak
+*.backup
+*~
