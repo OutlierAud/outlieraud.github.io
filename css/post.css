@@ -1,10 +1,12 @@
 /* ============================================================
    POST — the article reading page (post.html).
-   Reading column alignment, badge, date and drop cap.
+   Reading column alignment, body size, badge, date and drop cap.
    Shared page head, prose, figures and back link come from content.css.
    ============================================================ */
 
 .article.post { margin-inline-start: 0; }
+
+.post .prose { font-size: 1rem; }
 
 /* Wide content shares the reading column's left edge and expands toward the right. */
 .post .fig--wide {
@@ -44,7 +46,7 @@
 
 .post .footnote {
   font-family: var(--font-ui);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.55;
   color: var(--ink-soft);
 }
