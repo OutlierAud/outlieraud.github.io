@@ -9,7 +9,7 @@
       "date": "2025-05-20",
       "excerpt": "If data could speak, what would it say? Would it tell us the whole truth? Or would it whisper only what we've asked it to tell us? And will we listen carefully enough to hear it, without distortion?",
       "genre": "techniques",
-      "featured": true
+      "featured": false
     },
     {
       "cat": "stories",
@@ -19,8 +19,8 @@
       "subhead": "Spatial Stories",
       "date": "2026-11-24",
       "excerpt": "What changes when a story is told through points, lines or an interactive map? I used the November map prompts to find out.",
-      "genre": "techniques",
-      "featured": false
+      "genre": "spatial-analysis",
+      "featured": true
     }
   ]
 }

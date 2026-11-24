@@ -42,9 +42,9 @@ async function loadPosts(category) {
 }
 
 function renderPosts() {
-  const featured = allPosts.find(post => post.featured === true);
-  let regular = allPosts.filter(post => post.featured !== true);
-  if (currentFilter !== 'all') regular = regular.filter(post => post.genre === currentFilter);
+  const showAll = currentFilter === 'all';
+  const featured = showAll ? allPosts.find(post => post.featured === true) : null;
+  const regular = allPosts.filter(post => showAll ? post.featured !== true : post.genre === currentFilter);
 
   const featuredContainer = document.getElementById('featured-post-container');
   if (featuredContainer) featuredContainer.innerHTML = featured ? renderCard(featured, true) : '';
