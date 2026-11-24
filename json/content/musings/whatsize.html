@@ -1,0 +1,80 @@
+<p>How do you find the right sample size for your research? When working with large datasets, it’s easy to assume that bigger is better. More data, more observations, more insight. Right?</p>
+
+<p>Not necessarily.</p>
+
+<p>I recently learned how to calculate sample size based on the desired confidence interval of an estimate. I also learned about statistical power: the probability of detecting an effect of a specified size if that effect really exists.</p>
+
+<p>But knowing how to calculate sample size and knowing how much data you actually need are two different things.</p>
+
+<p>There had to be more to it. And so I went searching for answers.</p>
+
+<figure class="fig fig--right">
+    <img src="/assets/media/musings/goldilocks_sml.png" alt="Goldilocks">
+</figure>
+
+<h2 style="clear: none;">The Goldilocks Problem</h2>
+<p>During my exploration, I came across an article discussing the Goldilocks approach to sample size selection, a method used in adaptive clinical trial design to help determine an appropriate sample size as a trial progresses.</p>
+<p>I liked the analogy. It captured the dilemma I was trying to understand: how do you find the right balance between collecting too little data and collecting more than you actually need?</p>
+<p>I wanted to take that idea beyond clinical trials and explore the broader question of how we determine an appropriate sample size for statistical estimation and inference.</p>
+<p>This post summarises what my search for answers led to: What I found was that the answer depends on four things:</p>
+<ul>
+    <li><strong>What we're trying to find out.</strong> Are we estimating an average, measuring a proportion, comparing groups, or looking for relationships between variables? Different questions call for different methods of estimation and inference, and each comes with its own considerations.</li>
+<li><strong>How precise our estimates need to be.</strong> Greater precision generally requires more data. But how much precision is enough? That depends on the question we're asking and the uncertainty we're willing to accept.</li>
+<li><strong>What we're hoping to discover.</strong> If we're looking for a difference or an effect, we need to consider how large or meaningful that effect might be and how likely our analysis is to detect it.</li>
+<li><strong>Whether our data can actually answer the question.</strong> A large sample doesn't necessarily represent the population we're interested in. Bias, missing information, and gaps in coverage can limit what we can learn, regardless of how many observations we have.</li>
+</ul>
+<h3>What We're Trying to Find Out</h3>
+<p>Before we can determine how much data we need, we need to be clear about what we're trying to learn.</p>
+<p>For example, suppose we're investigating whether residents in flood-prone areas can reach an evacuation centre within 15 minutes. We could estimate the proportion who can make it within that time, or compare accessibility between flood-prone areas and other locations.</p>
+<p>Although these questions are related, they call for different analyses. The method we use, along with its assumptions and requirements, influences how we determine an appropriate sample size.</p>
+<blockquote>It made me realise that sample size isn't a number we can work out independently of the research question. We need to know what we're trying to find out first.</blockquote>
+<p>
+<h3>How Precise Our Estimates Need to Be</h3>
+When estimating a proportion or an average, we also need to consider how much uncertainty we're willing to accept.</p>
+<p>A narrower confidence interval gives us a more precise estimate, but achieving that precision generally requires a larger sample. Under standard assumptions, halving the margin of error requires roughly four times the sample size.</p>
+<p>That's a substantial increase for what might seem like a modest improvement.</p>
+<p>Of course, greater precision is desirable, but it comes at a cost. So depending on the research question, available resources, and how the findings will be used, there may be little practical benefit in pursuing ever smaller margins of error.</p>
+<blockquote>The question isn't simply how precise an estimate can be, but how precise it needs to be.</blockquote>
+<p>
+<h3>What We're Hoping to Discover</h3>
+Sometimes, we're not just estimating a population characteristic. We want to find out whether a difference or an effect exists.</p>
+<p>Suppose we want to compare evacuation accessibility in flood-prone areas with accessibility elsewhere. We'd need to consider <i>how large</i> a difference we want to be able to detect, and <i>how likely</i> our analysis is to detect it, if it really exists. This is where statistical power comes in.</p>
+<p>But there's another consideration: what counts as a meaningful difference?</p>
+<p>A large enough sample can make even a small difference statistically significant. Yet statistical significance doesn't automatically mean that a finding matters in the real world. A small difference in evacuation accessibility, for instance, could still have serious implications for a vulnerable community.</p>
+<p>This helped me see that sample size decisions aren't just about the probability of detecting an effect. We also need to think about which effects matter and why we're looking for them in the first place.</p>
+<blockquote>We need to consider not only what effect we're looking for and how likely we are to detect it, but also whether that effect matters in practice.</blockquote>
+<p>
+<h3>Whether Our Data Can Actually Answer the Question</h3>
+Finally, even a carefully calculated sample size doesn't guarantee useful results. The quality and representativeness of the data matter, too.
+</p>
+<p>Imagine conducting a survey about evacuation preparedness but missing residents in remote communities because they're harder to reach. Increasing the sample size won't necessarily solve the problem if those communities remain underrepresented.</p>
+<p>The same applies when we're working with existing datasets. Millions of records might sound impressive, but what if important locations or population groups are missing? What if the data doesn't contain the information we need to answer our research question?</p>
+<p>In these situations, more observations don't automatically give us better evidence. We need to consider who's represented in the data, who's missing, and whether the dataset is suitable for the analysis we want to conduct.</p>
+<p>This feels particularly relevant to the social, environmental and government data I'm interested in working with. The people and places that are easiest to measure aren't necessarily the ones we most need to understand.</p>
+<blockquote>Even a large sample can leave us with an incomplete picture if important groups or information are missing.</blockquote>
+<p>
+<h3>Finding the Right Balance</h3>
+What started as a question about calculating sample size led me to a much broader set of considerations.</p>
+<p>There's no single sample size that works for every research question. We need to consider what we're trying to find out, how precise our estimates need to be, what effects we're interested in detecting, and whether our data can support the conclusions we want to draw.</p>
+<p>These considerations are connected, and I still have plenty to learn about how they fit together. But I came away understanding that determining sample size is about more than finding the right number. It's about making sure we have enough of the right data for the question we're asking.</p>
+<p>I didn't find a straightforward answer to my original question. But perhaps that's because there isn't one.</p>
+<p><b><i>If anything, this exploration has made me more aware of what I don't yet know. I learned a lot, yet am I still none the wiser. But at least I now have a better understanding of the questions I should be asking. That's a good place to start.</i></b></p>
+
+<div class="footnote">
+    <hr class="footnote__divider">
+    
+    <h3>Further Reading</h3>
+    
+    <p>A couple of resources that helped me think more carefully about sample size and what influences it.</p>
+    <ol>
+        <li>
+            <p><strong><a href="https://doi.org/10.1525/collabra.33267" target="_blank" rel="noopener noreferrer">Sample Size Justification</a> <br>Daniël Lakens</strong><br>A broad look at different ways to justify sample size, including statistical power, desired precision, and practical constraints. This helped me see that there isn't one universal answer to how much data we need.</p>
+        
+        </li>
+        
+        <li>
+            <p><strong><a href="https://urbanstudies.institute/projects-programmes-monitoring-evaluation/determine-right-sample-size-research/" target="_blank" rel="noopener noreferrer">How to Determine the Right Sample Size for Your Research</a> <br>Urban Studies Institute</strong><br>A practical introduction to the factors that influence sample size in research, including the research question, study design, and available resources.</p>
+        </li>
+    </ol>
+</div>
+

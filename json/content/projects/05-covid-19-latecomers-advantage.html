@@ -1,0 +1,16 @@
+<p>Did countries that reported their first COVID-19 case later see slower growth in those first few weeks? I wondered whether a later start might give countries more time to prepare, and whether I could see any trace of that in the case records.</p>
+
+<p>Using Johns Hopkins University data covering <strong>197 countries</strong>, I measured how long it took each country to report its first case. Then I calculated the average daily growth in confirmed cases over its own first <strong>45 days</strong>. That gave each country the same window to compare.</p>
+
+<h3>Did the latecomers have an advantage?</h3>
+
+<p>Countries that reported their first case later tended to record slower growth. In the fitted regression, a first report <strong>100 days later</strong> corresponded to an average daily growth rate about <strong>2.2 percentage points lower</strong>. The slope still pointed down when I removed the seven countries with zero recorded growth over their first 45 days.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/covid-19-arrival-growth.png" alt="Scatter plot of case growth over each country's first 45 days against the timing of its first reported case, with a downward fitted line">
+  <figcaption>The regression explains about 21% of the variation in reported growth across countries.</figcaption>
+</figure>
+
+<p>About 21% left me with plenty of questions. A first reported case gives me a date I can compare across the dataset, but testing and reporting affect when that date falls and how many cases are counted afterwards. Public-health measures also varied across countries. The pattern gives me a reason to ask what countries did with the extra time. Answering that would take evidence about what each country actually did.</p>
+
+<p><a href="https://github.com/OutlierAud/COVID-19-The-Latecomer-s-Advantage-">See the full analysis and R Markdown on GitHub</a></p>

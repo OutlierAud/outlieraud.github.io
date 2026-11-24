@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "cat": "musings",
+      "id": "whatsize",
+      "title": "Size Matters: When Bigger Isn't Necessarily Better",
+      "date": "2026-10-13",
+      "excerpt": "How do I find the right sample size for my project? This led me down a rabbit hole of questions about statistical power, meaningful differences, and data quality. I soon realised that the answer isn't as straightforward as I thought it'd be.",
+      "genre": "statistics",
+      "featured": true
+    },
+    {
+      "cat": "musings",
+      "id": "impostersyndrome",
+      "title": "A Case Of Imposter Syndrome",
+      "subhead": "Keeping Self Doubt in Check",
+      "date": "2026-09-20",
+      "excerpt": "This one's a little more personal. I'm taking a closer look at my own self doubt while pondering whether imposter syndrome might explain some of it. Because God knows, we all have enough to worry about without doubting ourselves constantly.",
+      "genre": "general",
+      "featured": false
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+/* ============================================================
+   HOME — homepage only (index.html). Loaded with base.css and
+   layout.css (for the footer). Nothing else on the site uses it.
+
+   §1  Shell
+   §2  Hero
+   §3  Welcome text
+   §4  Bar chart nav
+   §5  Responsive
+   ============================================================ */
+
+
+/* §1  SHELL */
+
+.home {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* §2  HERO */
+
+.hero {
+  text-align: center;
+  animation: fadeUp var(--dur) var(--ease) both;
+}
+
+.hero__logo {
+  width: clamp(280px, 55vw, 720px);
+  height: auto;
+  margin: 0 auto;
+}
+
+.hero__tagline {
+  margin-top: var(--space-sm);
+  padding-left: var(--space-md);
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+
+/* §3  WELCOME TEXT */
+
+.welcome {
+  text-align: center;
+  max-width: 720px;
+  width: 100%;
+  padding-left: var(--space-md);
+  animation: fadeUp var(--dur) var(--ease) 0.6s both;
+}
+
+.welcome__lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.welcome__body {
+  font-family: var(--font-ui);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-top: var(--space-sm);
+}
+
+
+/* §4  BAR CHART NAV
+   Bar heights are set per link in index.html:  style="--h: 60%;" */
+
+.barnav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 900px;
+  height: 260px;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--rule);
+}
+
+.barnav__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  cursor: pointer;
+}
+
+.barnav__bar {
+  display: block;
+  width: 100%;
+  height: var(--h, 60%);
+  background: var(--ink);
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  transition: background var(--dur) var(--ease),
+              transform var(--dur) var(--ease);
+  animation: growBar var(--dur) var(--ease) forwards;
+}
+
+.barnav__item:nth-child(1) .barnav__bar { animation-delay: 0.15s; }
+.barnav__item:nth-child(2) .barnav__bar { animation-delay: 0.25s; }
+.barnav__item:nth-child(3) .barnav__bar { animation-delay: 0.35s; }
+.barnav__item:nth-child(4) .barnav__bar { animation-delay: 0.45s; }
+.barnav__item:nth-child(5) .barnav__bar { animation-delay: 0.55s; }
+
+.barnav__label {
+  position: absolute;
+  bottom: -2.2rem;
+  font-family: var(--font-ui);
+  font-size: var(--fs-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  transition: color var(--dur) var(--ease);
+  white-space: nowrap;
+}
+
+.barnav__item:hover .barnav__bar,
+.barnav__item:focus-visible .barnav__bar { background: var(--accent); }
+
+.barnav__item:hover .barnav__label,
+.barnav__item:focus-visible .barnav__label { color: var(--accent); }
+
+.barnav__item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@keyframes growBar {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barnav__bar { transform: scaleY(1); }
+}
+
+
+/* §5  RESPONSIVE */
+
+@media (max-width: 860px) {
+  .home {
+    padding: var(--space-md) var(--space-sm);
+    gap: var(--space-md);
+  }
+
+  /* Bar chart becomes a stacked list */
+  .barnav {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: var(--space-sm);
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .barnav__item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 56px;
+    gap: var(--space-sm);
+  }
+
+  .barnav__bar {
+    width: 6px;
+    height: 100%;
+    transform-origin: left center;
+  }
+
+  .barnav__label {
+    position: static;
+    bottom: auto;
+    font-size: 0.95rem;
+  }
+}

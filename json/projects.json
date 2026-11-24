@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": "01-crash-boom-bang",
+      "title": "Crash! Boom! Bang!",
+      "date": "2026-11-14",
+      "excerpt": "Analysing traffic incidents across Okinawa, Japan in the year 2024 to see where accidents clustered, when they peaked, and which patterns stood out in fatal crashes.",
+      "genre": "data-science",
+      "featured": true
+    },
+    {
+      "id": "03-the-monster-tail-experiment",
+      "title": "The Monster Tail Experiment",
+      "date": "2026-11-13",
+      "excerpt": "I used earthquake data to see how to tell a Pareto tail from an exponential one. It turns out the answer depends on what you're measuring.",
+      "genre": "data-science",
+      "featured": false
+    },
+    {
+      "id": "04-nyc-shooting-hotspots",
+      "title": "The Geography of Gun Violence in New York City",
+      "date": "2026-11-13",
+      "excerpt": "I looked at 19 years of recorded shootings in New York City to see when they peaked and whether the late-night weekend map told a different story.",
+      "genre": "data-science",
+      "featured": false
+    },
+    {
+      "id": "05-covid-19-latecomers-advantage",
+      "title": "COVID-19: The Latecomer's Advantage?",
+      "date": "2026-10-02",
+      "excerpt": "Did countries that reported COVID-19 later see slower growth in confirmed cases? I compared the first 45 days of reported cases across 197 countries.",
+      "genre": "data-science",
+      "featured": false
+    }
+  ]
+}

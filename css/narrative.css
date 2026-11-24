@@ -1,0 +1,30 @@
+/* ============================================================
+   NARRATIVE — static text pages (about/intro.html, contact/getintouch.html).
+   Only what is unique to these pages. Page head and prose come
+   from content.css.
+   ============================================================ */
+
+/* Icon + link rows, e.g. contact details */
+.prose .contact__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.35em;
+}
+
+.prose .contact__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: 0.6em;
+}
+
+/* Call-to-action link at the end of a page */
+.prose a.prose__cta {
+  display: inline-block;
+  margin-top: var(--space-md);
+  font: var(--label-lg);
+  letter-spacing: var(--ls-mid);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--category-color);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Outlier Aud</title>
+  <base href="/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- PAGE TYPE: post.  Stylesheets: base + layout + content + post -->
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/content.css" />
+  <link rel="stylesheet" href="/css/post.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div id="headerContainer"></div>
+
+    <main class="main-content-container" id="mainContentContainer">
+      <article class="article post">
+
+        <header class="page-head">
+          <span class="post__badge" id="categoryBadge">Category</span>
+          <h1 class="page-head__title">
+            <span class="page-head__initial" id="firstLetter"></span><span id="postTitleRest"></span>
+          </h1>
+          <p class="page-head__subhead" id="postSubhead" hidden></p>
+          <div class="post__date" id="postDate"></div>
+        </header>
+
+        <!-- Post body HTML is injected here from /json/content/<category>/<id>.html -->
+        <div class="prose" id="postBody">
+          <p class="loading">Loading…</p>
+        </div>
+        
+        <a href="/index.html" class="back-link" id="backLink">← Back</a>
+
+      </article>
+    </main>
+
+    <div id="footerContainer"></div>
+  </div>
+
+  <script src="/js/category_style.js"></script>
+  <script src="/js/load_components.js"></script>
+  <script src="/js/apply_category_colors.js"></script>
+  <script src="/js/render_post.js"></script>
+</body>
+</html>

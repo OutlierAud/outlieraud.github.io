@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "cat": "stories",
+      "id": "artofstorytelling",
+      "viz": "/assets/viz_media/artofstorytelling.jpg",
+      "title": "The Art of Data Storytelling",
+      "subhead": "Bridging Art & Science",
+      "date": "2025-05-20",
+      "excerpt": "If data could speak, what would it say? Would it tell us the whole truth? Or would it whisper only what we've asked it to tell us? And will we listen carefully enough to hear it, without distortion?",
+      "genre": "techniques",
+      "featured": true
+    },
+    {
+      "cat": "stories",
+      "id": "30-day-map-challenge-2026",
+      "viz": "/assets/media/stories/map-challenge-2026/koala-sightings.jpg",
+      "title": "30 Day Map Challenge 2026",
+      "subhead": "Spatial Stories",
+      "date": "2026-11-24",
+      "excerpt": "What changes when a story is told through points, lines or an interactive map? I used the November map prompts to find out.",
+      "genre": "techniques",
+      "featured": false
+    }
+  ]
+}

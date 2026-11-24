@@ -1,0 +1,74 @@
+/* The 30 Day Map Challenge gallery */
+.prose .map-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-md);
+  padding: 0;
+  list-style: none;
+}
+
+.prose .map-challenge-grid__card {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--rule);
+  overflow-wrap: anywhere;
+}
+
+.map-challenge-grid__thumbnail {
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  background: var(--code-bg);
+}
+
+.map-challenge-grid__thumbnail img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.map-challenge-grid__thumbnail--pending {
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  font: var(--label);
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: var(--space-sm) var(--space-sm);
+}
+
+.map-challenge-grid__copy {
+  padding: var(--space-xs) var(--space-sm) var(--space-sm);
+}
+
+.map-challenge-grid__copy p {
+  margin: 0;
+  color: var(--ink-soft);
+  font: 400 0.85rem / 1.5 var(--font-ui);
+}
+
+.map-challenge-grid__copy .map-challenge-grid__day {
+  font: var(--label);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+.map-challenge-grid__copy h3 {
+  margin: var(--space-xs) 0;
+  font-size: 1.05rem;
+}
+
+.map-challenge-grid__copy h3 a { color: inherit; }
+
+@media (max-width: 860px) {
+  .prose .map-challenge-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .prose .map-challenge-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xs);
+  }
+
+  .map-challenge-grid__copy { padding: var(--space-xs); }
+}

@@ -1,0 +1,27 @@
+<p>My interests in data science are increasingly focused on human, environmental and public-interest questions. In these kinds of data, a handful of observations can account for a surprisingly large share of the total. I wanted to get better at recognising when that happens and figuring out what sort of tail I'm looking at.</p>
+
+<p>Earthquakes seemed like an interesting place to experiment. I used a catalogue of <strong>12,792 earthquakes of magnitude 5.5 and above</strong>, recorded from January 2000 to November 2025, and compared a Pareto fit with an exponential one.</p>
+
+<h3>Can I tell from a plot?</h3>
+
+<p>The histogram had a long, thin right tail. And the log-log plot looked reasonably straight. I thought I was onto something. But the magnitudes occupied a narrow range, and a gentle curve can look quite straight over a short stretch.</p>
+
+<p>So I raised the minimum magnitude and refitted the Pareto each time. Its exponent kept climbing when I expected it to settle. I also checked how far above each cutoff the remaining earthquakes were, on average. That gap stayed fairly flat over much of the range, which is closer to what I'd expect from an exponential.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/monster-tail-magnitude.png" alt="On a semi-log plot, observed earthquake magnitudes follow the exponential fit more closely than the Pareto fit">
+  <figcaption>The largest gap between the observed and fitted curves was 0.0058 for the exponential and 0.0159 for the Pareto.</figcaption>
+</figure>
+
+<p>The exponential fit was closer. Its estimated rate implied that an increase of one magnitude unit made earthquakes about ten times rarer in this catalogue.</p>
+
+<h3>So where was the monster tail?</h3>
+
+<p>Moment magnitude is already on a logarithmic scale. I took the <strong>11,893 records with moment magnitudes</strong> and looked at their seismic moment, a physical measure of earthquake size. On that scale, the same fitted relationship becomes a power law, with a Pareto exponent of about <strong>0.67</strong>. The largest events started to look different, too. Just <strong>ten earthquakes accounted for 61%</strong> of the summed seismic moment in that subset.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/monster-tail-seismic-moment.png" alt="On a log-log plot, seismic moment follows the fitted Pareto over much of the range and bends below it at the largest values">
+  <figcaption>The largest events sit below the fitted line, where the catalogue has the fewest observations.</figcaption>
+</figure>
+
+<p>What I'll take to another dataset is a better first question. What scale am I looking at? Once I know that, I can fit a plausible alternative and see how each model behaves as I raise the threshold. That's more to go on than a straight-looking line.</p>

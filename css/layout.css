@@ -1,0 +1,138 @@
+/* ============================================================
+   LAYOUT — the site shell shared by every page except the
+   homepage body (that lives in home.css).
+   Header, footer, main container, reading-column width.
+
+   §1  App container
+   §2  Site header + nav
+   §3  Main container + article column
+   §4  Site footer
+   §5  Responsive
+   ============================================================ */
+
+
+/* §1  APP CONTAINER */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* §2  SITE HEADER + NAV */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.site-header__brand { display: inline-block; line-height: 0; }
+
+.site-header__brand img {
+  display: block;
+  height: 34px;       /* logo size: change here */
+  width: auto;
+  mix-blend-mode: darken; /* Blend the logo's pale background into the header paper. */
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-md);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label-lg);
+  font-weight: 500;
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  position: relative;
+  color: var(--ink-soft);
+  padding: 0.25rem 0;
+  transition: color 200ms var(--ease);
+}
+
+.site-nav a:hover { color: var(--ink); }
+
+.site-nav a.active { color: var(--category-color); }
+
+.site-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: var(--category-color);
+}
+
+
+/* §3  MAIN CONTAINER + ARTICLE COLUMN */
+
+.main-content-container {
+  flex: 1;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+}
+
+/* Reading column: posts, narrative pages (about, contact), 404 */
+.article {
+  max-width: var(--maxw-article);
+  margin: 0 auto;
+}
+
+
+/* §4  SITE FOOTER */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--space-sm) var(--space-md) var(--space-lg);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label-lg);
+  color: var(--ink-soft);
+}
+
+.site-footer__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+
+/* §5  RESPONSIVE */
+
+@media (max-width: 860px) {
+  .main-content-container { padding: var(--space-lg) var(--space-sm); }
+
+  /* Nav wraps under the logo instead of hiding items */
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-sm);
+    font-size: var(--fs-label);
+  }
+}

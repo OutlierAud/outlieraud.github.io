@@ -1,0 +1,36 @@
+<p>When I started looking at shooting incidents in New York City, I wanted to know when they peaked and where they clustered. Then I wondered what would happen if I put those two questions together. Would the same areas stand out if I looked only at the busiest hours?</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/nyc-shootings/nyc-gun-violence-cover.jpg" alt="The Geography of Gun Violence in New York City, illustrated with the Statue of Liberty and the city skyline" width="1920" height="1080">
+</figure>
+
+<p>I used the <a href="https://data.cityofnewyork.us/Public-Safety/ARCHIVED_NYPD-Shooting-Incident-Data-Historic-/833y-fsy8/about_data">NYPD's historical shooting records</a> from <strong>2006 to 2024</strong>. I counted each incident once, even when it involved more than one victim, and used the same set of records with coordinates for both the time analysis and the maps.</p>
+
+<h3>How I approached the analysis</h3>
+
+<figure class="fig">
+  <img src="/assets/media/projects/nyc-shootings/analysis_roadmap.png" alt="Six steps: review the distribution across NYC, identify high- and low-count precincts, map incidents, identify spatial hotspots, find peak times, and compare peak-time hotspots" width="1536" height="1024" loading="lazy">
+</figure>
+
+<h3>What stood out?</h3>
+
+<p>Recorded shootings declined for much of the period, then nearly doubled from <strong>777 in 2019 to 1,531 in 2020</strong>. The count stayed elevated through 2022 and fell to <strong>869 in 2024</strong>. Looking at boroughs separately helped me see how differently that rise and fall played out across the city.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/nyc-shootings/annual-incidents-by-borough.png" alt="Annual shooting counts for New York City's five boroughs from 2006 to 2024, with a sharp rise in Brooklyn and the Bronx in 2020" width="1356" height="838" loading="lazy">
+</figure>
+
+<h3>What changed when I narrowed the window?</h3>
+
+<p>Late Friday and Saturday nights stood out on the weekday-by-hour chart. When I mapped those hours using the same grid and colour scale as the all-hours map, many of the same concentrations remained visible, particularly in parts of Brooklyn, the South Bronx and northern Manhattan.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/nyc-shootings/all-hours-and-weekend-hotspots.png" alt="Two maps comparing all-hours and peak-weekend shooting counts, with overlapping concentrations in Brooklyn, the South Bronx and northern Manhattan" width="2112" height="1152" loading="lazy">
+  <figcaption>Both maps use the same colour scale for counts of recorded incidents.</figcaption>
+</figure>
+
+<p>These maps pool 19 years of records. They show where recorded incidents accumulated. I'd need population or other exposure data to compare risk, and a year-by-year look to see whether the concentrations shifted.</p>
+
+<p><a href="/projects/nyc-shootings-slideshow.html">View the findings slideshow</a></p>
+
+<p><a href="https://github.com/OutlierAud/NYC-Shooting-Hotspots-Historical-">See the full analysis and R Markdown on GitHub</a></p>

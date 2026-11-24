@@ -1,0 +1,152 @@
+/* ============================================================
+   BASE — loaded on EVERY page.
+   Tokens, reset, element defaults, utilities.
+   RULE: nothing in this file targets a component or a page type.
+
+   §1  Tokens (colour, fonts, type scale, label styles, space, layout)
+   §2  Reset
+   §3  Element defaults (links, images, headings, paragraphs)
+   §4  Utilities
+   §5  Reduced motion
+   ============================================================ */
+
+
+/* ============================================================
+   §1  TOKENS
+   ============================================================ */
+
+:root {
+  /* Colour */
+  --paper: #f9f9f8;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --rule: #d8d6d1;
+  --accent: #d32f2f;
+  --category-color: var(--accent);   /* default; apply_category_colors.js overrides per category */
+  --code-bg: #f0eeea;
+
+  /* Fonts.  Serif = content you read.  Sans = interface, labels, metadata. */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-ui: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  /* Type scale */
+  --fs-title: clamp(1.9rem, 3.8vw, 2.85rem);       /* post titles, default h1 */
+  --fs-title-lg: clamp(2.25rem, 4.5vw, 3.5rem);    /* landing / about / contact titles */
+  --fs-subhead: clamp(1.1rem, 1.8vw, 1.5rem);
+  --fs-body: 1.125rem;                              /* prose body; shrinks on mobile (see below) */
+  --fs-label: 0.72rem;                              /* small uppercase labels */
+  --fs-label-lg: 0.8rem;                            /* nav, links, buttons */
+
+  /* Label styles.  Use as:  font: var(--label);  letter-spacing: var(--ls-wide);  text-transform: uppercase; */
+  --label:    600 var(--fs-label) / 1.4 var(--font-ui);
+  --label-lg: 600 var(--fs-label-lg) / 1.4 var(--font-ui);
+  --ls-wide: 0.2em;      /* eyebrows, badges, card meta */
+  --ls-mid: 0.14em;      /* dates, links, buttons */
+  --ls-nav: 0.08em;      /* navigation */
+
+  /* Space */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 700ms;
+
+  /* Layout */
+  --maxw: 1200px;            /* site container */
+  --maxw-article: 720px;     /* reading column for posts and narrative pages */
+}
+
+/* Mobile: one change here updates every piece of body text */
+@media (max-width: 860px) {
+  :root { --fs-body: 1.05rem; }
+}
+
+
+/* ============================================================
+   §2  RESET
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ============================================================
+   §3  ELEMENT DEFAULTS
+   Keep these minimal. Image layout is NOT decided here —
+   see "Figures" in content.css.
+   ============================================================ */
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; height: auto; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 { font-size: var(--fs-title); }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.25rem); }
+h3 { font-size: clamp(1.15rem, 1.6vw, 1.4rem); }
+
+p { margin: 0 0 var(--space-sm); }
+
+
+/* ============================================================
+   §4  UTILITIES
+   ============================================================ */
+
+[hidden] { display: none !important; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-xs) var(--space-sm);
+  z-index: 999;
+}
+.skip-link:focus { left: var(--space-sm); top: var(--space-sm); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+
+/* ============================================================
+   §5  REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

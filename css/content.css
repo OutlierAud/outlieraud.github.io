@@ -1,0 +1,269 @@
+/* ============================================================
+   CONTENT — shared by landing, post, narrative and 404 pages.
+   The one place that defines how a page header and body text look.
+   This file never mentions a page type; type files (landing.css,
+   post.css, narrative.css) build on it.
+
+   §1  Page head      .page-head, .page-head--lg
+   §2  Prose          .prose
+   §3  Figures        .fig, .fig--left/right/narrow/wide, .fig-row
+   §4  Inline icons   .icon
+   §5  Back link      .back-link
+   §6  Messages       .error, .loading
+   ============================================================ */
+
+
+/* ============================================================
+   §1  PAGE HEAD
+   <header class="page-head">            normal size (posts, 404)
+   <header class="page-head page-head--lg">   larger title (landing, about, contact)
+   Title size comes from --fs-title / --fs-title-lg in base.css.
+   ============================================================ */
+
+.page-head {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-head > :last-child { margin-bottom: 0; }
+
+.page-head__eyebrow {
+  display: block;
+  font: var(--label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--category-color);
+  margin-bottom: var(--space-sm);
+}
+
+.page-head__title {
+  margin: 0 0 var(--space-sm);     /* size: base.css h1 = --fs-title */
+}
+
+.page-head--lg .page-head__title { font-size: var(--fs-title-lg); }
+
+/* Coloured first letter of the title */
+.page-head__initial {
+  color: var(--category-color);
+  font-size: 1.1em;
+  line-height: 1;
+  margin-right: 0.03em;
+}
+
+.page-head__subhead {
+  margin: 0 0 var(--space-sm);
+  max-width: 60ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--fs-subhead);
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* Longer intro paragraph under the head (landing pages) */
+.page-head__desc {
+  max-width: 68ch;
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+}
+
+
+/* ============================================================
+   §2  PROSE — body text of posts and narrative pages
+   ============================================================ */
+
+.prose {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+/* Contain floated figures so they never spill out of the text block */
+.prose::after { content: ""; display: table; clear: both; }
+
+.prose p { margin: 0 0 1.35em; }
+
+.prose h2 {
+  font-size: 1.5rem;
+  margin: var(--space-lg) 0 var(--space-sm);
+  clear: both;
+}
+
+.prose h3 {
+  font-size: 1.2rem;
+  margin: var(--space-md) 0 var(--space-xs);
+  clear: both;
+}
+
+/* h4 = small uppercase section label */
+.prose h4 {
+  font: var(--label);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--category-color);
+  margin: var(--space-lg) 0 var(--space-xs);
+  clear: both;
+}
+
+.prose a {
+  color: var(--category-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness 200ms var(--ease);
+}
+.prose a:hover { text-decoration-thickness: 2px; }
+
+.prose blockquote {
+  border-left: 3px solid var(--category-color);
+  margin: var(--space-md) 0;
+  padding-left: var(--space-md);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.35em;
+  padding-left: 1.5em;
+}
+
+.prose li { margin-bottom: 0.4em; }
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+.prose pre {
+  background: var(--code-bg);
+  padding: var(--space-sm);
+  overflow-x: auto;
+  margin: var(--space-md) 0;
+}
+
+.prose pre code { background: none; padding: 0; }
+
+
+/* ============================================================
+   §3  FIGURES — images in articles are opt-in.
+   A bare <img> is left alone (base.css only caps it at 100% width).
+   Wrap an image in <figure class="fig"> to get a layout:
+
+     <figure class="fig">                  full column width (default)
+     <figure class="fig fig--narrow">      centred, 60% wide
+     <figure class="fig fig--left">        floats left, text wraps (40%)
+     <figure class="fig fig--right">       floats right, text wraps (40%)
+     <figure class="fig fig--wide">        breaks out wider than the text column
+     <div class="fig-row"> <figure class="fig">…</figure> <figure class="fig">…</figure> </div>
+                                           side by side
+
+   Tune a single figure's width inline:  style="--fig-width: 30%"
+   Selectors that style the <img> are zero-specificity (:where) so
+   any class you add can override them.
+   ============================================================ */
+
+.fig { margin: var(--space-lg) 0; }
+
+:where(.fig img) { display: block; width: 100%; }
+
+.fig figcaption {
+  font: 400 0.82rem / 1.5 var(--font-ui);
+  color: var(--ink-soft);
+  margin-top: var(--space-xs);
+}
+
+.fig--narrow {
+  width: var(--fig-width, 60%);
+  margin-inline: auto;
+}
+
+.fig--left,
+.fig--right {
+  width: var(--fig-width, 40%);
+  margin-top: 0.35em;
+  margin-bottom: var(--space-sm);
+}
+
+.fig--left  { float: left;  margin-left: 0;  margin-right: var(--space-md); }
+.fig--right { float: right; margin-right: 0; margin-left: var(--space-md); }
+
+/* Spans the full site container; never wider than the viewport */
+.fig--wide {
+  --fig-wide-width: min(calc(var(--maxw) - 2 * var(--space-md)), calc(100vw - 2 * var(--space-md)));
+  margin-inline: min(0px, calc((100% - var(--fig-wide-width)) / 2));
+}
+
+.fig-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+.fig-row > .fig { flex: 1 1 0; margin: 0; min-width: 0; }
+
+@media (max-width: 640px) {
+  .fig--left,
+  .fig--right,
+  .fig--narrow {
+    float: none;
+    width: 100%;
+    margin-inline: 0;
+  }
+  .fig--wide { margin-inline: 0; }
+  .fig-row { flex-direction: column; }
+}
+
+
+/* ============================================================
+   §4  INLINE ICONS (contact links, etc.)
+   ============================================================ */
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+
+/* ============================================================
+   §5  BACK LINK
+   ============================================================ */
+
+.back-link {
+  display: inline-block;
+  margin-top: var(--space-xl);
+  font: var(--label-lg);
+  letter-spacing: var(--ls-mid);
+  text-transform: uppercase;
+  color: var(--category-color);
+  transition: letter-spacing 200ms var(--ease);
+}
+
+.back-link:hover { letter-spacing: calc(var(--ls-mid) + 0.04em); }
+
+
+/* ============================================================
+   §6  MESSAGES (written into the page by JavaScript)
+   ============================================================ */
+
+.error {
+  padding: var(--space-md);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-ui);
+}
+
+.loading {
+  color: var(--ink-soft);
+  font-style: italic;
+}
