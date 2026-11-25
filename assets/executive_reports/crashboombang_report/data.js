@@ -21,7 +21,7 @@ const reportData = {
       "crashes": 249
     },
     {
-      "label": "Itoman City",
+      "label": "Ginowan City",
       "crashes": 233
     },
     {
@@ -31,12 +31,12 @@ const reportData = {
   ],
   "regions": [
     {
-      "label": "South",
-      "crashes": 1164
+      "label": "Central",
+      "crashes": 1270
     },
     {
-      "label": "Central",
-      "crashes": 1131
+      "label": "South",
+      "crashes": 1041
     },
     {
       "label": "North",
@@ -44,7 +44,7 @@ const reportData = {
     },
     {
       "label": "Yaeyama",
-      "crashes": 121
+      "crashes": 105
     },
     {
       "label": "Miyako",
@@ -52,8 +52,54 @@ const reportData = {
     }
   ],
   "route58": {
-    "crashes": 322
+    "crashes": 322,
+    "with_km_post": 316,
+    "km_100_to_120": 193
   },
+  "national_routes": [
+    {
+      "route": 58,
+      "crashes": 322
+    },
+    {
+      "route": 330,
+      "crashes": 178
+    },
+    {
+      "route": 329,
+      "crashes": 169
+    },
+    {
+      "route": 331,
+      "crashes": 70
+    },
+    {
+      "route": 507,
+      "crashes": 55
+    }
+  ],
+  "route58_sections": [
+    {
+      "start_km": 110,
+      "crashes": 118
+    },
+    {
+      "start_km": 100,
+      "crashes": 75
+    },
+    {
+      "start_km": 50,
+      "crashes": 30
+    },
+    {
+      "start_km": 90,
+      "crashes": 27
+    },
+    {
+      "start_km": 60,
+      "crashes": 22
+    }
+  ],
   "hours": [
     {
       "day": 1,

@@ -12,3 +12,14 @@
   padding: var(--space-sm);
   font-weight: 600;
 }
+
+.crash-map-embed {
+  display: block;
+  width: 100%;
+  height: clamp(20rem, 62vh, 32rem);
+  border: 1px solid var(--rule);
+}
+
+.crash-map-page { margin: 0; }
+
+#crash-map { height: 100vh; }

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2024 Okinawa crash hotspots</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/unique/crash-boom-bang-post.css">
+</head>
+<body class="crash-map-page">
+  <main id="crash-map" aria-label="Interactive map of the 30 highest-count crash locations in Okinawa in 2024"></main>
+  <noscript>Enable JavaScript to explore the crash hotspots map.</noscript>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  <script>
+    // Latitude, longitude and recorded crash count from the spatial analysis notebook.
+    const hotspots = [
+      [26.243, 127.692, 6.0],
+      [26.286, 127.756, 6.0],
+      [26.218, 127.681, 6.0],
+      [26.218, 127.724, 5.0],
+      [26.173, 127.727, 5.0],
+      [26.176, 127.668, 5.0],
+      [26.279, 127.779, 5.0],
+      [26.308, 127.764, 5.0],
+      [26.367, 127.817, 4.0],
+      [26.205, 127.721, 4.0],
+      [26.608, 127.984, 4.0],
+      [26.231, 127.686, 4.0],
+      [26.293, 127.778, 4.0],
+      [26.271, 127.706, 4.0],
+      [26.336, 127.799, 4.0],
+      [26.181, 127.724, 4.0],
+      [26.539, 127.949, 4.0],
+      [26.188, 127.711, 4.0],
+      [26.302, 127.761, 4.0],
+      [26.266, 127.738, 4.0],
+      [26.224, 127.766, 4.0],
+      [26.176, 127.669, 4.0],
+      [26.246, 127.726, 4.0],
+      [26.205, 127.668, 3.0],
+      [26.232, 127.705, 3.0],
+      [26.211, 127.693, 3.0],
+      [26.307, 127.781, 3.0],
+      [26.207, 127.651, 3.0],
+      [26.309, 127.815, 3.0],
+      [26.21, 127.692, 3.0]
+    ];
+    const map = L.map("crash-map", { scrollWheelZoom: false }).setView([26.242, 127.723], 12);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.heatLayer(hotspots, { radius: 20, blur: 10, minOpacity: 0.5, maxZoom: 12, max: 6 }).addTo(map);
+  </script>
+</body>
+</html>

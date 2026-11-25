@@ -1,4 +1,4 @@
-const { totals, municipalities, regions, route58, hours, lighting, types } = reportData;
+const { totals, municipalities, regions, route58, national_routes, route58_sections, hours, lighting, types } = reportData;
 const count = d3.format(",");
 const percent = d3.format(".2%");
 const css = getComputedStyle(document.documentElement);
@@ -33,6 +33,7 @@ const peakLabel = ([hour, crashes]) => `${count(crashes)} crashes during the ${t
 
 setText("regional-count", count(regionalCrashes));
 setText("route-count", count(route58.crashes));
+setText("route58-section-count", `${count(route58.km_100_to_120)} of ${count(route58.with_km_post)}`);
 setText("night-deaths", `${count(fullNight.deaths)} of ${count(totals.deaths)}`);
 setText("night-crashes", count(fullNight.crashes));
 setText("morning-peak", peakLabel(morningPeak));
@@ -69,11 +70,22 @@ function drawBars(target, rows, format) {
     .attr("fill", row => color(row.fill));
 }
 
-drawBars("#municipalities", municipalities.map((row, index) => ({
+const crashCounts = rows => rows.map((row, index) => ({
   label: row.label,
   value: row.crashes,
   fill: index === 0 ? "--blue" : "--blue-muted"
-})), row => count(row.value));
+}));
+const labelCount = row => count(row.value);
+
+drawBars("#municipalities", crashCounts(municipalities), labelCount);
+drawBars("#regions", crashCounts(regions), labelCount);
+drawBars("#all-types", crashCounts(d3.sort(types, row => -row.crashes)), labelCount);
+drawBars("#national-routes", crashCounts(national_routes.map(row => ({
+  ...row, label: `Route ${row.route}`
+}))), labelCount);
+drawBars("#route58-sections", crashCounts(route58_sections.map(row => ({
+  ...row, label: `KM ${row.start_km}–${row.start_km + 10}`
+}))), labelCount);
 
 drawBars("#lighting", [fullNight, fullDaylight].map(row => ({
   label: row.code === 22 ? "Full darkness" : "Full daylight",
@@ -86,7 +98,7 @@ drawBars("#types", types.map((row, index) => ({
   label: row.label,
   value: row.fatal_crashes,
   fill: index === 0 ? "--red" : "--red-muted"
-})), row => count(row.value));
+})), labelCount);
 
 // Day-by-hour heatmap. One tab stop enters the chart, and arrow keys move between cells.
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

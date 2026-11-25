@@ -4,11 +4,31 @@
 
 <blockquote>But how much truth lies behind these perceptions?</blockquote>
 
-<p>To find out, I used SQL and data visualisations to explore <strong>2,749 crashes involving injuries or deaths</strong> recorded across Okinawa Prefecture in 2024. I wanted to see where crashes clustered, when they peaked, and what stood out when I looked specifically at fatal crashes. <a href="https://www.npa.go.jp/publications/statistics/koutsuu/opendata/index_opendata.html">Traffic accident records published by Japan’s National Police Agency</a></p>
+<p>To find out, I used SQL and data visualisations to explore <strong>2,749 police-reported crashes involving injury or death</strong> that occurred in Okinawa Prefecture in 2024. I wanted to see where crashes clustered, when they peaked, and what stood out when I looked specifically at fatal crashes. The records come from <a href="https://www.npa.go.jp/publications/statistics/koutsuu/opendata/index_opendata.html">Japan’s National Police Agency</a>.</p>
 
 <h3>What stood out?</h3>
 
-<p><strong>Route 58 recorded 322 crashes</strong>, more than any other route code in the dataset. The central and southern regions together accounted for <strong>83.5%</strong> of all recorded crashes.</p>
+<p><strong>Route 58 recorded 322 crashes</strong>, more than any other route code in the dataset. Together, the Central and South regions accounted for <strong>84.1%</strong> of the recorded crashes.</p>
+
+<figure class="fig">
+  <iframe class="crash-map-embed" src="/assets/executive_reports/crashboombang_report/hotspots.html" title="Map of the 30 grid cells with the most recorded crashes in Okinawa in 2024" loading="lazy"></iframe>
+  <figcaption>I grouped crashes into small grid cells. Zoom out to see the 30 cells with the most recorded crashes. <a href="/assets/executive_reports/crashboombang_report/hotspots.html" target="_blank" rel="noopener">Open the full-size map</a>.</figcaption>
+</figure>
+
+<p><strong>Weekday crash counts peaked around 8 a.m. and 5 p.m.</strong></p>
+<figure class="fig">
+  <img src="/assets/media/projects/crash-boom-bang-crashes-by-hour.png" alt="Heatmap of recorded crashes by day and hour in Okinawa in 2024, with the strongest weekday peaks around 8 a.m. and 5 p.m." width="900" height="374" loading="lazy">
+  <figcaption><a href="/assets/media/projects/crash-boom-bang-crashes-by-hour.png" target="_blank" rel="noopener">Open the full-size heatmap</a>.</figcaption>
+</figure>
+<p>A different pattern emerged when I looked at severity. <strong>4.14% of crashes in full darkness were fatal</strong>, compared with <strong>1.04% in full daylight</strong>. Crashes between vehicles were the most common overall, while pedestrian–vehicle crashes made up the largest group of fatal crashes, with <strong>17 of 43</strong>.</p>
+
+<figure class="fig">
+  <img src="/assets/media/projects/crash-boom-bang-fatal-share-by-lighting.png" alt="Share of recorded crashes that were fatal, 21 of 507 in full darkness and 18 of 1,728 in full daylight" width="900" height="283" loading="lazy">
+</figure>
+
+<p>These findings give me a few places to look more closely, including Route 58, nighttime crash locations, and pedestrian crossings. Traffic volumes and pedestrian counts would help put the crash totals in context.</p>
+
+<p>I documented the analysis in six notebooks and brought the findings together in an interactive D3.js executive report.</p>
 
 <figure class="fig report-card">
   <img src="/assets/media/projects/crash-boom-bang-executive-summary.jpg" alt="Preview of the Okinawa road safety executive summary and its four headline figures" width="1120" height="583" loading="lazy">
@@ -17,9 +37,3 @@
     <a href="https://github.com/OutlierAud/Crash-Boom-Bang" target="_blank" rel="noopener"><img class="icon" src="/assets/icons/github_icon.png" alt="" width="20" height="20"> Visit the GitHub repository</a>
   </figcaption>
 </figure>
-
-<p>Weekday crash counts peaked around <strong>8 a.m. and 5 p.m.</strong> A different pattern emerged when I looked at severity. <strong>4.14% of crashes in full darkness were fatal</strong>, compared with <strong>1.04% in full daylight</strong>. Crashes between vehicles were the most common overall, while pedestrian–vehicle crashes made up the largest group of fatal crashes, with <strong>17 of 43</strong>.</p>
-
-<p>These findings give me a few places to look more closely, including Route 58, nighttime crash locations, and pedestrian crossings. Traffic volumes and pedestrian counts would help put the crash totals in context.</p>
-
-<p>I documented the analysis in six notebooks and brought the findings together in an interactive D3.js executive report.</p>
