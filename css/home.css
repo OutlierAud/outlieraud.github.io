@@ -95,7 +95,7 @@ body {
 
 
 /* §4  BAR CHART NAV
-   Bar heights are set per link in index.html:  style="--h: 60%;" */
+   Each link's --h sets its bar length. */
 
 .barnav {
   display: grid;
@@ -152,6 +152,7 @@ body {
 }
 
 .barnav__item:hover .barnav__bar,
+.barnav__item:active .barnav__bar,
 .barnav__item:focus-visible .barnav__bar { background: var(--accent); }
 
 .barnav__item:hover .barnav__label,
@@ -167,8 +168,9 @@ body {
   to   { transform: scaleY(1); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .barnav__bar { transform: scaleY(1); }
+@keyframes growBarHorizontal {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 
@@ -185,9 +187,8 @@ body {
   .hero__tagline,
   .welcome { padding-left: 0; }
 
-  /* Bar chart becomes a stacked list */
   .barnav {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     height: auto;
     gap: var(--space-xs);
     border-bottom: none;
@@ -195,23 +196,33 @@ body {
   }
 
   .barnav__item {
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
     min-height: 44px;
     height: auto;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
   }
 
   .barnav__bar {
-    width: 6px;
-    align-self: stretch;
-    height: auto;
+    width: var(--h, 60%);
+    height: var(--space-sm);
     transform-origin: left center;
+    transform: scaleX(0);
+    animation-name: growBarHorizontal;
   }
 
   .barnav__label {
+    order: -1;
     position: static;
     font-size: calc(0.95rem * var(--home-text-scale));
+    text-align: left;
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .barnav__bar {
+    animation-name: none;
+    transform: none;
   }
 }
