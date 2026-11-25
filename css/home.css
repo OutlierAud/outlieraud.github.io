@@ -12,6 +12,11 @@
 
 /* §1  SHELL */
 
+body {
+  --home-text-scale: 0.85;
+  font-size: calc(1em * var(--home-text-scale));
+}
+
 .home {
   flex: 1;
   width: 100%;
@@ -26,6 +31,7 @@
 
 .home + .site-footer {
   padding-block: var(--space-xs) clamp(var(--space-xs), 2.5svh, var(--space-md));
+  font-size: calc(var(--fs-label) * var(--home-text-scale));
 }
 
 @keyframes fadeUp {
@@ -52,7 +58,7 @@
   margin: var(--space-sm) 0 0;
   padding-left: var(--space-md);
   font-family: var(--font-ui);
-  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  font-size: calc(clamp(0.8rem, 1.1vw, 0.95rem) * var(--home-text-scale));
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -73,7 +79,7 @@
 .welcome__lead {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-size: calc(clamp(1.5rem, 2.6vw, 2.25rem) * var(--home-text-scale));
   font-style: italic;
   line-height: 1.3;
   color: var(--ink);
@@ -81,7 +87,7 @@
 
 .welcome__body {
   font-family: var(--font-ui);
-  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  font-size: calc(clamp(0.85rem, 1.1vw, 0.95rem) * var(--home-text-scale));
   font-weight: 300;
   color: var(--ink-soft);
   margin: var(--space-xs) 0 0;
@@ -135,7 +141,7 @@
   position: absolute;
   bottom: -2.2rem;
   font-family: var(--font-ui);
-  font-size: var(--fs-label-lg);
+  font-size: calc(var(--fs-label-lg) * var(--home-text-scale));
   font-weight: 500;
   letter-spacing: var(--ls-nav);
   text-transform: uppercase;
@@ -206,6 +212,6 @@
 
   .barnav__label {
     position: static;
-    font-size: 0.95rem;
+    font-size: calc(0.95rem * var(--home-text-scale));
   }
 }

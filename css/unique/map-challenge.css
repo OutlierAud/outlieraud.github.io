@@ -1,4 +1,34 @@
-/* The 30 Day Map Challenge gallery */
+/* The 30 Day Map Challenge thumbnail and gallery */
+.card .card__thumb img[src$="/completed-maps.jpg"] {
+  display: block;
+  aspect-ratio: auto;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card__thumb:has(> img[src$="/completed-maps.jpg"]) {
+    position: relative;
+  }
+
+  .card__thumb:has(> img[src$="/completed-maps.jpg"])::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 200%;
+    background: url("/assets/media/stories/map-challenge-2026/completed-maps.jpg") repeat-x left center / 50% 100%;
+    animation: map-challenge-scroll 22s linear infinite;
+    pointer-events: none;
+  }
+
+  .card__thumb:has(> img[src$="/completed-maps.jpg"]):is(:hover, :focus-visible)::after {
+    animation-play-state: paused;
+  }
+
+  @keyframes map-challenge-scroll {
+    to { transform: translateX(-50%); }
+  }
+}
+
 .prose .map-challenge-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
