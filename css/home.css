@@ -192,7 +192,7 @@ body {
     height: auto;
     gap: var(--space-xs);
     border-bottom: none;
-    padding-bottom: 0;
+    padding-block: var(--space-sm);
   }
 
   .barnav__item {
